@@ -1,0 +1,9 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = { title: "Privacy policy", description: "How the Dotless Android keyboard and website handle your information.", alternates: { canonical: "/privacy-policy" } };
+
+export default function PrivacyPolicy() {
+  return <main id="main-content" className="legal-page container"><Link className="text-link" href="/">← Back to Dotless</Link><span className="eyebrow">YOUR WORDS STAY YOURS</span><h1>Privacy <em>policy.</em></h1><div className="legal-content"><h2>The Dotless Android keyboard</h2><p className="legal-date">App policy last updated January 22, 2024</p><p>The publishers and developers of the Dotless keyboard app do not collect or receive any of your personal data.</p><p>To enhance the user experience and improve predictions, Dotless may store information about your typing habits, such as new words in your dictionary or words you use frequently.</p><p>All of that information stays in files on your phone. The app does not send it to third parties or transmit it over any network.</p><h2>This website</h2><p>The letter-family selector runs in your browser. It does not collect text or send your selections to a prediction service.</p><p>This website does not use analytics, advertising trackers, or account cookies. Fonts are hosted with the site. The original demo video plays directly from this site without a third-party video embed.</p><p>Like other websites, your hosting provider may process ordinary request information such as IP addresses. Its retention practices depend on the hosting service used. External links, including GitHub, follow their own privacy policies.</p><h2>Questions?</h2><p>Contact us at <a href={`mailto:${site.email}`}>{site.email}</a>.</p></div></main>;
+}

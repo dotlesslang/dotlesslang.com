@@ -1,0 +1,779 @@
+/* ============================================
+   DOTLESS — Modern Design System
+   ============================================ */
+
+/* ---------- Custom Properties ---------- */
+:root {
+  --gold: #FFD700;
+  --gold-light: #FFE57F;
+  --gold-glow: rgba(255, 215, 0, 0.4);
+  --dark: #0f1117;
+  --dark-card: #1a1d27;
+  --dark-surface: #22252f;
+  --cream: #faf8f5;
+  --text-primary: #e8e6e3;
+  --text-secondary: #9ca3af;
+  --text-dark: #1f2937;
+  --text-dark-secondary: #6b7280;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --shadow-gold: 0 4px 30px rgba(255, 215, 0, 0.2);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Amiri", serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--dark);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--gold-light);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* ---------- Utilities ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gold {
+  color: var(--gold-light);
+}
+
+/* ---------- Scroll Reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Button ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius-xl);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--dark);
+  box-shadow: var(--shadow-gold);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 35px rgba(184, 134, 11, 0.3);
+  color: var(--dark);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(15, 17, 23, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0.6rem 0;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.nav-logo-img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 6px;
+}
+
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--gold-light);
+}
+
+.nav-github {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary) !important;
+  transition: color var(--transition);
+}
+
+.nav-github:hover {
+  color: var(--gold-light) !important;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ============================================
+   HERO
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(184, 134, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(184, 134, 11, 0.05) 0%, transparent 50%),
+    var(--dark);
+  z-index: 0;
+}
+
+/* ---------- Floating Arabic Calligraphy ---------- */
+.arabic-glyph {
+  position: absolute;
+  font-family: "Aref Ruqaa", "Katibeh", "Gulzar", "Amiri", serif;
+  font-weight: 700;
+  color: #FFD700 !important;
+  -webkit-text-fill-color: #FFD700 !important;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  direction: rtl;
+  animation: glyphDrift 20s ease-in-out infinite, glyphPulse 8s ease-in-out infinite;
+  text-shadow:
+    0 0 15px rgba(255, 215, 0, 0.6),
+    0 0 35px rgba(255, 193, 7, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.2);
+}
+
+.has-arabic-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes glyphDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(10px, -14px) rotate(3deg); }
+  50% { transform: translate(-8px, 10px) rotate(-2deg); }
+  75% { transform: translate(12px, 6px) rotate(2deg); }
+}
+
+@keyframes glyphPulse {
+  0%, 100% { opacity: var(--glyph-opacity, 0.05); }
+  50% { opacity: calc(var(--glyph-opacity, 0.05) + 0.03); }
+}
+
+/* Hero Section (ag-1 to ag-24) */
+.ag-1  { top: 8%;  left: 5%;   font-size: 5.5rem; --glyph-opacity: 0.06; animation-delay: 0s, 0s; }
+.ag-2  { top: 15%; right: 8%;  font-size: 4.5rem; --glyph-opacity: 0.05; animation-delay: -3s, -2s; }
+.ag-3  { top: 55%; left: 4%;   font-size: 5rem;   --glyph-opacity: 0.06; animation-delay: -7s, -4s; }
+.ag-4  { top: 12%; left: 24%;  font-size: 4rem;   --glyph-opacity: 0.04; animation-delay: -5s, -1s; }
+.ag-5  { top: 68%; right: 6%;  font-size: 6.5rem; --glyph-opacity: 0.06; animation-delay: -10s, -3s; }
+.ag-6  { top: 38%; left: 10%;  font-size: 4.5rem; --glyph-opacity: 0.05; animation-delay: -2s, -6s; }
+.ag-7  { top: 80%; left: 16%;  font-size: 4.8rem; --glyph-opacity: 0.06; animation-delay: -8s, -5s; }
+.ag-8  { top: 28%; right: 16%; font-size: 5.2rem; --glyph-opacity: 0.05; animation-delay: -12s, -2s; }
+.ag-9  { top: 48%; right: 18%; font-size: 4rem;   --glyph-opacity: 0.06; animation-delay: -6s, -7s; }
+.ag-10 { top: 85%; right: 10%; font-size: 5rem;   --glyph-opacity: 0.05; animation-delay: -4s, -3s; }
+.ag-11 { top: 42%; left: 30%;  font-size: 3.5rem; --glyph-opacity: 0.04; animation-delay: -9s, -1s; }
+.ag-12 { top: 10%; right: 26%; font-size: 4.6rem; --glyph-opacity: 0.05; animation-delay: -1s, -5s; }
+.ag-13 { top: 22%; left: 15%;  font-size: 4rem;   --glyph-opacity: 0.05; animation-delay: -4s, -2s; }
+.ag-14 { top: 72%; left: 28%;  font-size: 4.2rem; --glyph-opacity: 0.05; animation-delay: -8s, -3s; }
+.ag-15 { top: 32%; right: 5%;  font-size: 5rem;   --glyph-opacity: 0.06; animation-delay: -2s, -5s; }
+.ag-16 { top: 62%; right: 28%; font-size: 3.8rem; --glyph-opacity: 0.04; animation-delay: -11s, -1s; }
+.ag-17 { top: 88%; left: 6%;   font-size: 5.5rem; --glyph-opacity: 0.06; animation-delay: -5s, -4s; }
+.ag-18 { top: 5%;  right: 18%; font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -7s, -6s; }
+.ag-19 { top: 45%; right: 38%; font-size: 3.6rem; --glyph-opacity: 0.04; animation-delay: -3s, -3s; }
+.ag-20 { top: 25%; left: 40%;  font-size: 3.2rem; --glyph-opacity: 0.04; animation-delay: -9s, -5s; }
+.ag-21 { top: 78%; right: 20%; font-size: 4.5rem; --glyph-opacity: 0.05; animation-delay: -1s, -2s; }
+.ag-22 { top: 18%; right: 40%; font-size: 3.5rem; --glyph-opacity: 0.04; animation-delay: -6s, -4s; }
+.ag-23 { top: 52%; left: 20%;  font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -10s, -1s; }
+.ag-24 { top: 82%; right: 36%; font-size: 3.8rem; --glyph-opacity: 0.04; animation-delay: -4s, -7s; }
+
+/* About Section (ag-25 to ag-34) */
+.ag-25 { top: 12%; right: 4%;  font-size: 6rem;   --glyph-opacity: 0.06; animation-delay: -3s, -2s; }
+.ag-26 { top: 50%; left: 2%;   font-size: 4.5rem; --glyph-opacity: 0.05; animation-delay: -7s, -4s; }
+.ag-27 { top: 32%; right: 14%; font-size: 4rem;   --glyph-opacity: 0.04; animation-delay: -11s, -6s; }
+.ag-28 { top: 75%; right: 8%;  font-size: 5rem;   --glyph-opacity: 0.06; animation-delay: -2s, -1s; }
+.ag-29 { top: 20%; left: 10%;  font-size: 4.2rem; --glyph-opacity: 0.05; animation-delay: -5s, -3s; }
+.ag-30 { top: 65%; left: 16%;  font-size: 3.8rem; --glyph-opacity: 0.05; animation-delay: -8s, -5s; }
+.ag-31 { top: 8%;  left: 28%;  font-size: 3.5rem; --glyph-opacity: 0.04; animation-delay: -1s, -4s; }
+.ag-32 { top: 82%; left: 3%;   font-size: 5.5rem; --glyph-opacity: 0.06; animation-delay: -6s, -2s; }
+.ag-33 { top: 40%; right: 28%; font-size: 3.6rem; --glyph-opacity: 0.04; animation-delay: -9s, -6s; }
+.ag-34 { top: 85%; right: 22%; font-size: 4.2rem; --glyph-opacity: 0.05; animation-delay: -4s, -3s; }
+
+/* Demo Section (ag-35 to ag-42) */
+.ag-35 { top: 15%; left: 6%;   font-size: 5.5rem; --glyph-opacity: 0.06; animation-delay: -1s, -3s; }
+.ag-36 { top: 45%; left: 4%;   font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -5s, -1s; }
+.ag-37 { top: 78%; left: 8%;   font-size: 5rem;   --glyph-opacity: 0.06; animation-delay: -9s, -5s; }
+.ag-38 { top: 12%; right: 6%;  font-size: 5.2rem; --glyph-opacity: 0.05; animation-delay: -3s, -2s; }
+.ag-39 { top: 48%; right: 5%;  font-size: 4.6rem; --glyph-opacity: 0.05; animation-delay: -7s, -6s; }
+.ag-40 { top: 82%; right: 7%;  font-size: 5.8rem; --glyph-opacity: 0.06; animation-delay: -2s, -4s; }
+.ag-41 { top: 28%; left: 18%;  font-size: 3.8rem; --glyph-opacity: 0.04; animation-delay: -11s, -2s; }
+.ag-42 { top: 68%; right: 18%; font-size: 4.2rem; --glyph-opacity: 0.04; animation-delay: -4s, -5s; }
+
+/* Goal Section (ag-43 to ag-52) */
+.ag-43 { top: 10%; left: 4%;   font-size: 5.8rem; --glyph-opacity: 0.06; animation-delay: -5s, -1s; }
+.ag-44 { top: 58%; right: 3%;  font-size: 4.5rem; --glyph-opacity: 0.06; animation-delay: -9s, -3s; }
+.ag-45 { top: 30%; left: 7%;   font-size: 5rem;   --glyph-opacity: 0.05; animation-delay: -2s, -5s; }
+.ag-46 { top: 82%; left: 12%;  font-size: 5.2rem; --glyph-opacity: 0.06; animation-delay: -7s, -2s; }
+.ag-47 { top: 15%; right: 8%;  font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -1s, -4s; }
+.ag-48 { top: 42%; right: 12%; font-size: 4.2rem; --glyph-opacity: 0.04; animation-delay: -6s, -6s; }
+.ag-49 { top: 75%; right: 15%; font-size: 4.6rem; --glyph-opacity: 0.05; animation-delay: -10s, -1s; }
+.ag-50 { top: 22%; left: 20%;  font-size: 3.6rem; --glyph-opacity: 0.04; animation-delay: -4s, -3s; }
+.ag-51 { top: 62%; left: 24%;  font-size: 4rem;   --glyph-opacity: 0.04; animation-delay: -8s, -5s; }
+.ag-52 { top: 88%; right: 28%; font-size: 4.4rem; --glyph-opacity: 0.05; animation-delay: -3s, -2s; }
+
+/* Team Section (ag-53 to ag-60) */
+.ag-53 { top: 15%; left: 5%;   font-size: 5.2rem; --glyph-opacity: 0.05; animation-delay: -2s, -3s; }
+.ag-54 { top: 55%; left: 3%;   font-size: 4.6rem; --glyph-opacity: 0.05; animation-delay: -6s, -1s; }
+.ag-55 { top: 82%; left: 10%;  font-size: 5rem;   --glyph-opacity: 0.06; animation-delay: -10s, -5s; }
+.ag-56 { top: 12%; right: 5%;  font-size: 5.4rem; --glyph-opacity: 0.05; animation-delay: -4s, -2s; }
+.ag-57 { top: 50%; right: 4%;  font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -8s, -6s; }
+.ag-58 { top: 85%; right: 8%;  font-size: 5.6rem; --glyph-opacity: 0.06; animation-delay: -1s, -4s; }
+.ag-59 { top: 32%; left: 18%;  font-size: 3.8rem; --glyph-opacity: 0.04; animation-delay: -5s, -2s; }
+.ag-60 { top: 68%; right: 18%; font-size: 4.2rem; --glyph-opacity: 0.04; animation-delay: -9s, -3s; }
+
+/* Contact Section (ag-61 to ag-68) */
+.ag-61 { top: 15%; left: 8%;   font-size: 5.5rem; --glyph-opacity: 0.06; animation-delay: -3s, -1s; }
+.ag-62 { top: 60%; left: 5%;   font-size: 5rem;   --glyph-opacity: 0.05; animation-delay: -7s, -4s; }
+.ag-63 { top: 82%; left: 14%;  font-size: 4.5rem; --glyph-opacity: 0.05; animation-delay: -11s, -2s; }
+.ag-64 { top: 18%; right: 7%;  font-size: 5.2rem; --glyph-opacity: 0.05; animation-delay: -2s, -5s; }
+.ag-65 { top: 52%; right: 6%;  font-size: 4.8rem; --glyph-opacity: 0.05; animation-delay: -6s, -3s; }
+.ag-66 { top: 85%; right: 12%; font-size: 5.4rem; --glyph-opacity: 0.06; animation-delay: -1s, -6s; }
+.ag-67 { top: 35%; left: 22%;  font-size: 3.8rem; --glyph-opacity: 0.04; animation-delay: -5s, -2s; }
+.ag-68 { top: 70%; right: 24%; font-size: 4.2rem; --glyph-opacity: 0.04; animation-delay: -8s, -4s; }
+
+/* Hide on very small screens to avoid clutter */
+@media (max-width: 480px) {
+  .arabic-glyph {
+    display: none;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 1rem;
+}
+
+.hero-logo {
+  width: 7rem;
+  height: 7rem;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about {
+  background: var(--dark);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  line-height: 1.8;
+}
+
+.about-text em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.about-accent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accent-card {
+  background: var(--dark-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.8rem;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.accent-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-3px);
+}
+
+.accent-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  font-family: var(--font-display);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.accent-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* ============================================
+   DEMO
+   ============================================ */
+.demo {
+  background: var(--dark-card);
+}
+
+.phone-frame {
+  max-width: 320px;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.phone-notch {
+  width: 100px;
+  height: 6px;
+  background: #222;
+  border-radius: 3px;
+  margin: 8px auto 12px;
+}
+
+.phone-frame video {
+  width: 100%;
+  display: block;
+  border-radius: 24px;
+  background: #000;
+}
+
+/* ============================================
+   GOAL — Feature Cards
+   ============================================ */
+.goal {
+  background: var(--dark);
+}
+
+.goal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--dark-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ============================================
+   TEAM
+   ============================================ */
+.team {
+  background: var(--dark-card);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: var(--dark-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition);
+}
+
+.team-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold);
+}
+
+.team-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 auto 1rem;
+}
+
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact {
+  background: var(--dark);
+}
+
+.contact-box {
+  text-align: center;
+  background: var(--dark-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-box h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.contact-box p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--dark-card);
+  border-top: 1px solid var(--border-subtle);
+  padding: 2rem 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--gold-light);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(15, 17, 23, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    transition: right var(--transition);
+    border-left: 1px solid var(--border-subtle);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 1.1rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-accent {
+    flex-direction: row;
+  }
+
+  .accent-card {
+    flex: 1;
+  }
+
+  .goal-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .hero-logo {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .goal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .goal-grid .card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+}

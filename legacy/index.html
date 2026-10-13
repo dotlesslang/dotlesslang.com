@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dotless — Arabic Typing Reimagined</title>
+    <meta
+      name="description"
+      content="Dotless leverages machine learning to simplify the Arabic keyboard by eliminating redundant keys. Type faster with fewer keys."
+    />
+    <link rel="icon" href="logo.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Gulzar&family=Katibeh&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=8" />
+  </head>
+  <body>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="logo.png" alt="Dotless" class="nav-logo-img" />
+          <span class="nav-logo-text">Dotless</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#goal">Goal</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a
+              href="https://github.com/kaddu341/dotless"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nav-github"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <header class="hero" id="hero">
+      <div class="hero-bg">
+        <span class="arabic-glyph ag-1">ب</span>
+        <span class="arabic-glyph ag-2">ح</span>
+        <span class="arabic-glyph ag-3">س</span>
+        <span class="arabic-glyph ag-4">ع</span>
+        <span class="arabic-glyph ag-5">د</span>
+        <span class="arabic-glyph ag-6">ر</span>
+        <span class="arabic-glyph ag-7">ص</span>
+        <span class="arabic-glyph ag-8">ط</span>
+        <span class="arabic-glyph ag-9">ه</span>
+        <span class="arabic-glyph ag-10">ج</span>
+        <span class="arabic-glyph ag-11">خ</span>
+        <span class="arabic-glyph ag-12">ن</span>
+        <span class="arabic-glyph ag-13">ق</span>
+        <span class="arabic-glyph ag-14">ك</span>
+        <span class="arabic-glyph ag-15">م</span>
+        <span class="arabic-glyph ag-16">و</span>
+        <span class="arabic-glyph ag-17">ل</span>
+        <span class="arabic-glyph ag-18">ف</span>
+        <span class="arabic-glyph ag-19">ا</span>
+        <span class="arabic-glyph ag-20">ت</span>
+        <span class="arabic-glyph ag-21">ذ</span>
+        <span class="arabic-glyph ag-22">ث</span>
+        <span class="arabic-glyph ag-23">غ</span>
+        <span class="arabic-glyph ag-24">ش</span>
+      </div>
+      <div class="hero-content reveal">
+        <img src="logo.png" alt="Dotless Logo" class="hero-logo" />
+        <h1>
+          Welcome to <span class="gold">Dotless</span>
+        </h1>
+        <p class="hero-tagline">Blending an ancient script with modern tech.</p>
+        <a
+          href="https://github.com/kaddu341/dotless"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+          View on GitHub
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <!-- ========== ABOUT ========== -->
+      <section class="section about has-arabic-bg" id="about">
+        <span class="arabic-glyph ag-25">ق</span>
+        <span class="arabic-glyph ag-26">ك</span>
+        <span class="arabic-glyph ag-27">ذ</span>
+        <span class="arabic-glyph ag-28">ع</span>
+        <span class="arabic-glyph ag-29">ب</span>
+        <span class="arabic-glyph ag-30">ي</span>
+        <span class="arabic-glyph ag-31">ض</span>
+        <span class="arabic-glyph ag-32">ظ</span>
+        <span class="arabic-glyph ag-33">ز</span>
+        <span class="arabic-glyph ag-34">ء</span>
+        <div class="container">
+          <h2 class="section-title reveal">What's it all about?</h2>
+          <div class="about-grid">
+            <div class="about-text reveal">
+              <p>
+                The Arabic alphabet as we know it, although familiar, is not the
+                original. The ancient Arabs had no need for diacritic marks or dots
+                to decipher the meanings of words, but later generations did…
+              </p>
+              <p>
+                <em>...until now.</em> The Dotless Arabic keyboard leverages machine
+                learning technology to accurately predict words based on their
+                context, eliminating 12 keys from the standard Arabic keyboard to
+                provide a simpler and easier typing experience.
+              </p>
+            </div>
+            <div class="about-accent reveal">
+              <div class="accent-card">
+                <span class="accent-number">12</span>
+                <span class="accent-label">Keys Eliminated</span>
+              </div>
+              <div class="accent-card">
+                <span class="accent-number">ML</span>
+                <span class="accent-label">Powered Predictions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== DEMO ========== -->
+      <section class="section demo has-arabic-bg" id="demo">
+        <span class="arabic-glyph ag-35">ح</span>
+        <span class="arabic-glyph ag-36">ن</span>
+        <span class="arabic-glyph ag-37">ص</span>
+        <span class="arabic-glyph ag-38">ر</span>
+        <span class="arabic-glyph ag-39">م</span>
+        <span class="arabic-glyph ag-40">ط</span>
+        <span class="arabic-glyph ag-41">ف</span>
+        <span class="arabic-glyph ag-42">ج</span>
+        <div class="container">
+          <h2 class="section-title reveal">See it in Action</h2>
+          <div class="phone-frame reveal">
+            <div class="phone-notch"></div>
+            <video id="v_demo" controls autoplay muted loop playsinline>
+              <source src="working_demo3.mp4" type="video/mp4" />
+              There was an error displaying this video.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== GOAL ========== -->
+      <section class="section goal has-arabic-bg" id="goal">
+        <span class="arabic-glyph ag-43">ث</span>
+        <span class="arabic-glyph ag-44">ف</span>
+        <span class="arabic-glyph ag-45">م</span>
+        <span class="arabic-glyph ag-46">ج</span>
+        <span class="arabic-glyph ag-47">د</span>
+        <span class="arabic-glyph ag-48">خ</span>
+        <span class="arabic-glyph ag-49">س</span>
+        <span class="arabic-glyph ag-50">ه</span>
+        <span class="arabic-glyph ag-51">ك</span>
+        <span class="arabic-glyph ag-52">ل</span>
+        <div class="container">
+          <h2 class="section-title reveal">Our Goal</h2>
+          <div class="goal-grid">
+            <div class="card reveal">
+              <div class="card-icon">⌨️</div>
+              <h3>Simplified Keyboard</h3>
+              <p>
+                Dotless reduces the number of keys by using machine learning to
+                differentiate between similar letters (e.g., ج، ح، خ) based on
+                context, drastically simplifying the layout.
+              </p>
+            </div>
+            <div class="card reveal">
+              <div class="card-icon">🧠</div>
+              <h3>N-Gram ML Model</h3>
+              <p>
+                We use a statistical n-gram model trained on a large corpus of
+                Arabic sentences to make accurate predictions. The Android app is
+                currently in alpha testing.
+              </p>
+            </div>
+            <div class="card reveal">
+              <div class="card-icon">🌍</div>
+              <h3>Multi-Language Support</h3>
+              <p>
+                We plan to extend support to other languages written in the Arabic
+                script — Farsi, Urdu, Kurdish, Uyghur, and many others, In Shaa
+                Allah!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== TEAM ========== -->
+      <section class="section team has-arabic-bg" id="team">
+        <span class="arabic-glyph ag-53">س</span>
+        <span class="arabic-glyph ag-54">خ</span>
+        <span class="arabic-glyph ag-55">ط</span>
+        <span class="arabic-glyph ag-56">ه</span>
+        <span class="arabic-glyph ag-57">ب</span>
+        <span class="arabic-glyph ag-58">ع</span>
+        <span class="arabic-glyph ag-59">ر</span>
+        <span class="arabic-glyph ag-60">ن</span>
+        <div class="container">
+          <h2 class="section-title reveal">Our Team</h2>
+          <div class="team-grid">
+            <div class="team-card reveal">
+              <div class="team-avatar">AA</div>
+              <h3>Awwab Ali Azam</h3>
+            </div>
+            <div class="team-card reveal">
+              <div class="team-avatar">AA</div>
+              <h3>Awwab Ahmed</h3>
+            </div>
+            <div class="team-card reveal">
+              <div class="team-avatar">AE</div>
+              <h3>Ammar Elbasheer</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section class="section contact has-arabic-bg" id="contact">
+        <span class="arabic-glyph ag-61">غ</span>
+        <span class="arabic-glyph ag-62">ل</span>
+        <span class="arabic-glyph ag-63">و</span>
+        <span class="arabic-glyph ag-64">ص</span>
+        <span class="arabic-glyph ag-65">ح</span>
+        <span class="arabic-glyph ag-66">ق</span>
+        <span class="arabic-glyph ag-67">م</span>
+        <span class="arabic-glyph ag-68">د</span>
+        <div class="container">
+          <div class="contact-box reveal">
+            <h2>Get in Touch</h2>
+            <p>Have questions or want to contribute?</p>
+            <a href="mailto:developer@dotlesslang.com" class="btn btn-primary">
+              ✉️ developer@dotlesslang.com
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <p>&copy; 2026 Dotless. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a
+            href="https://github.com/kaddu341/dotless"
+            target="_blank"
+            rel="noopener noreferrer"
+          >GitHub</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+      // Scroll-reveal animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        navToggle.classList.toggle("active");
+      });
+      // Close mobile nav on link click
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          navToggle.classList.remove("active");
+        });
+      });
+    </script>
+  </body>
+</html>
