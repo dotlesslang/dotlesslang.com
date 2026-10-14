@@ -33,8 +33,9 @@ export function Header() {
       <button ref={menuRef} className="menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}><Icon name={open ? "close" : "menu"} /></button>
       <nav ref={navRef} id="main-navigation" className={open ? "main-navigation is-open" : "main-navigation"} aria-label="Main navigation">
         <Link href="/#story" onClick={() => setOpen(false)}>The idea</Link>
-        <Link href="/#letter-families" onClick={() => setOpen(false)}>Letter families</Link>
-        <Link href="/#team" onClick={() => setOpen(false)}>Our team</Link>
+        <Link href="/#features" onClick={() => setOpen(false)}>The features</Link>
+        <Link href="/#team" onClick={() => setOpen(false)}>Contributors</Link>
+        <Link className="nav-story" href="/reviving-the-rasm" onClick={() => setOpen(false)}>Reviving the Rasm</Link>
         <a className="nav-source" href={site.github} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}><Icon name="github" size={17} /> GitHub <span className="external-arrow">↗</span></a>
       </nav>
     </div>
