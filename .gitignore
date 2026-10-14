@@ -11,3 +11,4 @@ out/
 *.tsbuildinfo
 .env*
 !.env.example
+DEPLOYMENT.md
